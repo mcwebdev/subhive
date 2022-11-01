@@ -45,4 +45,6 @@ Thumbs.db
 # Config files
 /src/environments
 /.vs
+/.angular
+/.firebase
 .vs

@@ -43,5 +43,6 @@ Thumbs.db
 
 
 # Config files
-src/environments
+/src/environments
+/.vs
 .vs

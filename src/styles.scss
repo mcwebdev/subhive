@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('http://fonts.cdnfonts.com/css/tarrget');
+
+body {
+    background:#000;
+    color:#fff;
+}
+
+h1 {
+  font-family: 'Tarrget', sans-serif;
+  letter-spacing: 3px;
+  font-size: 48px;
+  color:#fff;
+}

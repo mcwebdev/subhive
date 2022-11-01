@@ -7,7 +7,7 @@ export const environment = {
   firebase: {
     apiKey: "AIzaSyCfM3WZgs2kbGrcopH4e0R6ugrw11t2nVY",
     authDomain: "subhive-60d13.firebaseapp.com",
-    databaseURL: "xxxxxxxxxxxxxxxxxxxxxxxx",
+    databaseURL: "https://subhive-60d13-default-rtdb.firebaseio.com",
     projectId: "subhive-60d13",
     storageBucket: "subhive-60d13.appspot.com",
     messagingSenderId: "5198912773",

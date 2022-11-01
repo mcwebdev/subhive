@@ -45,3 +45,4 @@ Thumbs.db
 # Config files
 /src/environments/environment.prod.ts
 /src/environments/environment.ts
+.vs

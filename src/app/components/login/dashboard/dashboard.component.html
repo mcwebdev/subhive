@@ -1,6 +1,6 @@
 <!-- Top navigation -->
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
- navbar
+  navbar
 </nav>
 <!-- Sidebar navigation -->
 <div class="container-fluid">
@@ -41,7 +41,7 @@
                 <p>User ID: <strong>{{user.uid}}</strong></p>
                 <p>Email: <strong>{{user.email}}</strong></p>
                 <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-                <p>URL: <strong>{{user.test}}jk{{user.photoURL}}</strong></p>
+                <p>URL: <strong>{{user.test}}{{user.photoURL}}</strong></p>
               </div>
             </div>
           </div>
@@ -50,3 +50,6 @@
     </main>
   </div>
 </div>
+<app-file-upload></app-file-upload>
+<app-upload-details></app-upload-details>
+<app-upload-list></app-upload-list>

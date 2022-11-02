@@ -21,6 +21,10 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { FormatFileSizePipe } from './shared/format-file-size.pipe';
+import { FileUploadComponent } from './components/upload/file-upload/file-upload.component';
+import { UploadListComponent } from './components/upload/upload-list/upload-list.component';
+import { UploadDetailsComponent } from './components/upload/upload-detail/upload-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { environment } from '../environments/environment';
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    FormatFileSizePipe,
+    FileUploadComponent,
+    UploadListComponent,
+    UploadDetailsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'subhive'),

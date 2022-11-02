@@ -26,6 +26,13 @@ import { FileUploadComponent } from './components/upload/file-upload/file-upload
 import { UploadListComponent } from './components/upload/upload-list/upload-list.component';
 import { UploadDetailsComponent } from './components/upload/upload-detail/upload-detail.component';
 
+//PrimeNG
+import { ButtonModule } from 'primeng/button';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+//FLEX
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +55,9 @@ import { UploadDetailsComponent } from './components/upload/upload-detail/upload
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ButtonModule,
+    FlexLayoutModule,
+    FontAwesomeModule,
     AppRoutingModule
   ],
   providers: [AuthService],

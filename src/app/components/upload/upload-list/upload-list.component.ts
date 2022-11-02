@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploadService } from '../../../shared/services/file-upload.service';
+import { FileUploadComponent } from '../../../components/upload/file-upload/file-upload.component';
 import { map } from 'rxjs/operators';
 
 @Component({

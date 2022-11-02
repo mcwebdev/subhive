@@ -10,8 +10,7 @@ import { FileUpload } from '../../../shared/models/file-upload.model';
 export class UploadDetailsComponent implements OnInit {
   @Input() fileUpload!: FileUpload;
 
-  constructor(private uploadService: FileUploadService) {
-    console.log(this.fileUpload)}
+  constructor(private uploadService: FileUploadService) { }
 
   ngOnInit(): void {
   }

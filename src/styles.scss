@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('http://fonts.cdnfonts.com/css/tarrget');
-
+@import url('http://fonts.cdnfonts.com/css/vogue-2');
 body {
-    background:#000;
-    color:#fff;
+  font-family: 'Vogue', sans-serif;
+  background: Black;
+  color: #fff;
 }
 
 h1 {
@@ -11,4 +12,34 @@ h1 {
   letter-spacing: 3px;
   font-size: 48px;
   color:#fff;
+}
+
+.subhive {
+    margin:auto;
+    font-size:256px;
+    text-align:center;
+}
+
+.i{
+    color:red;
+}
+
+.e {
+  color: purple;
+}
+
+.s {
+  color: forestgreen;
+}
+
+.u {
+  color: yellow;
+}
+
+.b{
+    color: cornflowerblue;
+}
+
+.h {
+  color: #111;
 }

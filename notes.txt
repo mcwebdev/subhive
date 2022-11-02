@@ -1,1 +1,8 @@
 firebase deploy --only hosting
+
+
+//redirect to subhive.com
+Add the TXT records below to your DNS provider to verify you own subhive.com. Do not delete your TXT records.
+
+Type	Host	        Value
+TXT     subhive.com     google-site-verification=dJS94lJ-qyXyjxaY9qq1LlB6ji0Gaq3dWAcvAA3jTII 

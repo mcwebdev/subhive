@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { SignUpComponent } from './components/login/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/login/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/login/verify-email/verify-email.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 // Auth service
 import { AuthService } from "./shared/services/auth.service";
 
@@ -30,13 +32,14 @@ import { environment } from '../environments/environment';
     VerifyEmailComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase, 'subhive'),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [AuthService],

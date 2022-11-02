@@ -36,9 +36,12 @@
                    alt="{{user.displayName}}">
               <div class="media-body">
                 <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                Update User Display Name: <input pInput [(ngModel)]="authService.name" />
+                <button pButton (click)="authService.UpdateDisplayName(user)">Submit</button>
                 <p>User ID: <strong>{{user.uid}}</strong></p>
                 <p>Email: <strong>{{user.email}}</strong></p>
                 <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                <p>URL: <strong>{{user.test}}jk{{user.photoURL}}</strong></p>
               </div>
             </div>
           </div>

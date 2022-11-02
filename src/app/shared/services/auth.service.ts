@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { User } from '../services/user';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/compat/database';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
@@ -13,10 +14,13 @@ import { Router } from '@angular/router';
 })
 
 export class AuthService {
-
   userData: any; // Save logged in user data
+  usersRef: AngularFireList<any> | undefined;      // Reference to users list, Its an Observable
+  userRef: AngularFireObject<any> | undefined;     // Reference to user object, Its an Observable too
+  name: string = "";
 
   constructor(
+    private db: AngularFireDatabase, // Inject AngularFireDatabase dependency in constructor
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
@@ -27,6 +31,7 @@ export class AuthService {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
+        user.displayName
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
       } else {
@@ -66,6 +71,7 @@ export class AuthService {
       .catch((error) => {
         window.alert(error.message);
       });
+
   }
 
   // Send email verfificaiton when new user sign up
@@ -108,6 +114,7 @@ export class AuthService {
       .signInWithPopup(provider)
       .then((result) => {
         this.router.navigate(['dashboard']);
+
         this.SetUserData(result.user);
       })
       .catch((error) => {
@@ -127,10 +134,26 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
+      emailVerified: user.emailVerified
     };
     return userRef.set(userData, {
       merge: true,
+    });
+  }
+
+  // https://firebase.google.com/docs/reference/js/v8/firebase.User#updateprofile
+  UpdateDisplayName(user: any) {
+    // Updates the user attributes:
+    user.updateProfile({
+      displayName: this.name,
+      photoURL: ''
+    }).then(function () {
+      // Profile updated successfully!
+      // "Jane Q. User"
+      var displayName = user.displayName;
+      var photoURL = user.photoURL;
+    }, function (error: any) {
+      // An error happened.
     });
   }
 

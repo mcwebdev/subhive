@@ -1,23 +1,30 @@
-<p>Choose Images to Upload</p>
-<label>
-  <input type="file"
-         class="text-nowrap text-truncate"
-         (change)="selectFile($event)" />
-</label>
+<div *ngIf="user$ | async as user">
+  <p>Choose Images to Upload</p>
+  <label>
+    <input type="file"
+           class="text-nowrap text-truncate"
+           (change)="selectFile($event)" />
+  </label>
 
-<button class="btn btn-success btn-sm"
-        [disabled]="!selectedFiles"
-        (click)="upload()">
-  Upload
-</button>
+  <button class="btn btn-success btn-sm"
+          [disabled]="!selectedFiles"
+          (click)="upload()">
+    Upload
+  </button>
 
-<div *ngIf="currentFileUpload" class="progress mt-2">
-  <div class="progress-bar progress-bar-info"
-       role="progressbar"
-       attr.aria-valuenow="{{ percentage }}"
-       aria-valuemin="0"
-       aria-valuemax="100"
-       [ngStyle]="{ width: percentage + '%' }">
-    {{ percentage }}%
+  <div *ngIf="currentFileUpload" class="progress mt-2">
+    <div class="progress-bar progress-bar-info"
+         role="progressbar"
+         attr.aria-valuenow="{{ percentage }}"
+         aria-valuemin="0"
+         aria-valuemax="100"
+         [ngStyle]="{ width: percentage + '%' }">
+      {{ percentage }}%
+    </div>
   </div>
+  <img src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+       alt="{{user.displayName}}" width="100">
+  <h2>Update Profile Picture</h2>
+  <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
+  <button mat-mini-fab (click)="inputField.click()">Update</button>
 </div>

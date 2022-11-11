@@ -1,18 +1,28 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-
-import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import {
+  getDownloadURL,
+  ref,
+  uploadBytes,
+} from '@angular/fire/storage';
+import { finalize, from, map, Observable, switchMap } from 'rxjs';
 import { FileUpload } from '../models/file-upload.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class FileUploadService {
   private basePath = '/uploads';
 
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+
+  uploadImage(image: File, path: string): Observable<string> {
+    const storageRef = ref(this.storage.storage, path);
+    const uploadTask = from(uploadBytes(storageRef, image));
+    return uploadTask.pipe(switchMap((result) => getDownloadURL(result.ref)));
+  }
 
   pushFileToStorage(fileUpload: FileUpload): Observable<number> {
     const filePath = `${this.basePath}/${fileUpload.file.name}`;

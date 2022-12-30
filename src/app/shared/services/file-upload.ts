@@ -1,5 +1,5 @@
 export interface FileUpload {
-  name: string;
-  filepath: string;
-  size: number;
+    name: string;
+    filepath: string;
+    size: number;
 }

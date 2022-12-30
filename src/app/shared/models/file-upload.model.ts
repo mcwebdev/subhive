@@ -1,10 +1,10 @@
 export class FileUpload {
-  key!: string;
-  name!: string;
-  url!: string;
-  file: File;
+    key!: string;
+    name!: string;
+    url!: string;
+    file: File;
 
-  constructor(file: File) {
-    this.file = file;
-  }
+    constructor(file: File) {
+        this.file = file;
+    }
 }
